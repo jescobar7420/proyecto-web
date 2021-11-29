@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Contenido de este Curso</h1>
-    <div class="container" *ngFor="let contenido of contenidos" id="detalles_contenido">
+    <div class="container" *ngFor="let contenido of ListaModulos" id="detalles_contenido">
         <div class="row">
             <div class="col-4">
                 <div class="card-body">
@@ -26,7 +26,7 @@
         </button>
         
         
-        <button type="button" class="btn btn btn-primary" id="comenzarCurso" [routerLink]="['/cursoIndividual',curso.idcurso]" *ngFor="let curso of cursos.getCursos()">
+        <button type="button" class="btn btn btn-primary" id="comenzarCurso" [routerLink]="['/cursoIndividual', ListaModulos[0].idCurso]">
             <a>Comenzar este curso</a>
         </button>
         

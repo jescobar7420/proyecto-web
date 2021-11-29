@@ -7,6 +7,16 @@ export interface VideoS {
     url: string
 }
 
+/* export interface CursoVideo {
+  idCurso:number; //1, 1, 2
+  idVideo:number; //2, 3, 1
+}
+
+export interface Videos {
+  idVideo: number; // 1, 2, 3, 4
+  url: string;  // asdsa adsad asdasd
+} */
+
 
 export let cursos: Array<VideoS>=[{
     idcurso:1,

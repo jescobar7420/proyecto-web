@@ -13,6 +13,7 @@ export class EmpleosScreenComponent implements OnInit {
   id:number=0;
   empleosRelacionados:any
   ListaEmpleos = new Array<Empleo>();
+  Empleo:any;
   
   constructor(private ruta:ActivatedRoute, private router: Router, private http:BolsaService) {
     this.ruta.params.subscribe(datos=>{
@@ -25,6 +26,8 @@ export class EmpleosScreenComponent implements OnInit {
       for(let i=0; i<datos.items.length; i++) {
         this.ListaEmpleos.push(datos.items[i]);
       }
+      
+      this.Empleo = (this.ListaEmpleos.find(objeto=>objeto.idEmpleo == this.id));
     })
   
     /* this.empleo = empleos.find(objeto=>objeto.idEmpleo==this.id);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CursosService} from '../../services/cursos.service';
 import {VideoS} from 'src/app/interfaces/video'
+import { ListaModulos } from 'src/app/interfaces/modulo';
  
 @Component({
   selector: 'app-curso-nuevo-screen',
@@ -9,7 +10,7 @@ import {VideoS} from 'src/app/interfaces/video'
 })
 export class CursoNuevoScreenComponent implements OnInit {
 
-  cursos:CursosService = new CursosService
+  /* cursos:CursosService = new CursosService
 
   contenidos: any[] =[
     {
@@ -30,13 +31,14 @@ export class CursoNuevoScreenComponent implements OnInit {
       texto: "Módulo 1: Clase 1",
       descripcion:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed nunc quis orci cursus viverra vel eu tortor. Maecenas tristique lacus et blandit ullamcorper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
     }
-  ]
+  ] */
 
-  
+  ListaModulos=ListaModulos;
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
