@@ -14,7 +14,7 @@ export class EmpleosScreenComponent implements OnInit {
   empleosRelacionados:any
   ListaEmpleos = new Array<Empleo>();
   Empleo:any;
-  
+   
   constructor(private ruta:ActivatedRoute, private router: Router, private http:BolsaService) {
     this.ruta.params.subscribe(datos=>{
       this.id=datos["id"]
@@ -28,6 +28,15 @@ export class EmpleosScreenComponent implements OnInit {
       }
       
       this.Empleo = (this.ListaEmpleos.find(objeto=>objeto.idEmpleo == this.id));
+      console.log(this.ListaEmpleos);
+
+      //this.Empleo = (this.ListaEmpleos.reloadEmpleos(this.Empleo!));
+      for(let i=0; i<this.ListaEmpleos.length; i++) {
+        if(this.ListaEmpleos[i].idEmpleo == this.id) {
+          this.ListaEmpleos.splice(i, 1);
+        }
+      }
+      console.log(this.ListaEmpleos);
     })
   
     /* this.empleo = empleos.find(objeto=>objeto.idEmpleo==this.id);

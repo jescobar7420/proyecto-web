@@ -1,11 +1,9 @@
-
-
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
             <h1>{{CursoActual.titulo}}</h1>
             <input type="range" class="form-range" min="1" max="{{ModulosCurso.length}}" value="1" id="rangoModulo">
-            <app-modulo-video [Modulo]="ModulosCurso[0]"></app-modulo-video>
+            <app-modulo-video [Modulo]="ModulosCurso[2]"></app-modulo-video>
         </div>
         <div class="col-lg-4">
             <div id="caja_escribir_comentario">

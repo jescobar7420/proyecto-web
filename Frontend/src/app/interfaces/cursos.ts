@@ -12,7 +12,6 @@ export let cursos: Array<Cursos>=[{
   total:3,
   titulo: "Curso de programación en Js",
   url:"https://www.youtube.com/embed/rEsSxd0L4GI",
-  
 },{
   idcurso: 2,
   curso:"Diseño",

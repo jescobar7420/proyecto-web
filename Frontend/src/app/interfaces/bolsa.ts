@@ -14,7 +14,7 @@ export interface Empleo{
     verificacion:boolean;
   }
 
-  export let empleos: Array<Empleo>=[{
+  /* export let empleos: Array<Empleo>=[{
       "idEmpleo":1,
       "titulo": "Programador front-end en empresa",
       "empresa": "Program S.A.C",
@@ -84,4 +84,4 @@ export interface Empleo{
       "salario": "",
       "jornada": "Full time",
       "verificacion":false
-  }]
+  }] */
