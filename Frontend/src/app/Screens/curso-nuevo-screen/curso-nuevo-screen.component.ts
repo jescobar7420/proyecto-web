@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {CursosService} from '../../services/cursos.service';
-import {VideoS} from 'src/app/interfaces/video'
-import { ListaModulos } from 'src/app/interfaces/modulo';
- 
+import {Cursos} from 'src/app/interfaces/cursos';
+import { Modulo, ListaModulos } from 'src/app/interfaces/modulo';
+
+
 @Component({
   selector: 'app-curso-nuevo-screen',
   templateUrl: './curso-nuevo-screen.component.html',
@@ -33,12 +35,36 @@ export class CursoNuevoScreenComponent implements OnInit {
     }
   ] */
 
+
   ListaModulos=ListaModulos;
+  Modulo:any;
+  id:number = 0;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { 
+    this.route.params.subscribe(datos => {
+      this.id = datos["id"];
+    })
+  }
 
-  ngOnInit(): void {
+  
+  ngOnInit() {
+
     
+  }
+  
+  filtrar(lista: Modulo[], id:number): Modulo[]{
+    let resultado: Modulo[] = [];
+    
+
+
+
+    return resultado;
+  }
+
+
+  getID(){
+    let id =this.route.snapshot.params.id;
+    return id;
   }
 
 }

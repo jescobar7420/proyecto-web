@@ -13,9 +13,8 @@ export interface Empleo{
     jornada: string;
     verificacion:boolean;
   }
-  
-  
-  /* export let empleos: Array<empleo>=[{
+
+  export let empleos: Array<Empleo>=[{
       "idEmpleo":1,
       "titulo": "Programador front-end en empresa",
       "empresa": "Program S.A.C",
@@ -86,4 +85,3 @@ export interface Empleo{
       "jornada": "Full time",
       "verificacion":false
   }]
-   */

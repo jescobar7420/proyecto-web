@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Contenido de este Curso</h1>
     <div class="container" *ngFor="let contenido of ListaModulos" id="detalles_contenido">
-        <div class="row">
+        <div class="row" *ngIf="contenido.idCurso == id">
             <div class="col-4">
                 <div class="card-body">
                     <iframe src="https://www.youtube.com/embed/rEsSxd0L4GI" title="contenidocurso" allowfullscreen>
@@ -20,15 +20,15 @@
         </div>
     </div>
     <div class="container my-2" id="container-botones">
-        
-        <button type="button" class="btn btn btn-secondary" id ="regresar">
+
+        <button type="button" class="btn btn btn-secondary" id="regresar">
             <a [routerLink]="['/cursos']">Buscar otro curso</a>
         </button>
-        
-        
-        <button type="button" class="btn btn btn-primary" id="comenzarCurso" [routerLink]="['/cursoIndividual', ListaModulos[0].idCurso]">
+
+
+        <button type="button" class="btn btn btn-primary" id="comenzarCurso" [routerLink]="['/cursoIndividual', id]">
             <a>Comenzar este curso</a>
         </button>
-        
+
     </div>
 </div>

@@ -19,6 +19,7 @@ import { CursoNuevoScreenComponent } from './Screens/curso-nuevo-screen/curso-nu
 import { CursoNuevoIndividualScreenComponent } from './Screens/curso-nuevo-individual-screen/curso-nuevo-individual-screen.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ModuloVideoComponent } from './components/modulo-video/modulo-video.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotificacionesScreenComponent,
     CursoNuevoScreenComponent,
     CursoNuevoIndividualScreenComponent,
+    ModuloVideoComponent,
   ],
   imports: [
     BrowserModule,
