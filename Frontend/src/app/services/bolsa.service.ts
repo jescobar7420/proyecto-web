@@ -24,5 +24,9 @@ export class BolsaService {
   GetEmpleos():Observable<any> {
     return this.http.get(`${environment.hostname}/Empleos`);
   }
+  
+  GetUnicoEmpleo(id:number):Observable<any> {
+    return this.http.get(`${environment.hostname}/Empleos/${id}`);
+  }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CursosService } from 'src/app/services/cursos.service';
+import { Cursos } from 'src/app/interfaces/cursos';
 
 @Component({
   selector: 'app-cursos-screen',
@@ -6,49 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cursos-screen.component.scss']
 })
 export class CursosScreenComponent {
-
-  cursos:any[] = [
-    {
-      id:1,
-      url: "https://www.youtube.com/embed/rEsSxd0L4GI",
-      titulo: "Curso de Programación en Js",
-      modulos: "3 Módulos",
-    },
-    {
-      id:2,
-      url: "https://www.youtube.com/embed/rEsSxd0L4GI",
-      titulo: "Curso de Diseño",
-      modulos: "3 Módulos"
-    },
-    {
-      id:3,
-      url: "https://www.youtube.com/embed/rEsSxd0L4GI",
-      titulo: "Curso de Desarrollo de Videojuegos",
-      modulos: "4 Módulos"
-    },
-    {
-      id:4,
-      url: "https://www.youtube.com/embed/rEsSxd0L4GI",
-      titulo: "Curso de Diseño en Interfaz",
-      modulos: "2 Módulos"
-    },
-    {
-      id:5,
-      url: "https://www.youtube.com/embed/rEsSxd0L4GI",
-      titulo: "Curso de Video Digital",
-      modulos: "2 Módulos"
-      
-    },
-    {
-      id:6,
-      url: "https://www.youtube.com/embed/rEsSxd0L4GI",
-      titulo: "Curso de Diseño Gráfico",
-      modulos: "3 Módulos"
-    }
-  ] 
-  constructor() { }
+  
+  ListaCursos = new Array<Cursos>();
+  
+  constructor(private http:CursosService) { }
 
   ngOnInit(): void {
+    this.http.GetCursos().subscribe(datos => {
+      for(let i=0; i<datos.items.length; i++) {
+        this.ListaCursos.push(datos.items[i]);
+      }
+    })
   }
 
 }

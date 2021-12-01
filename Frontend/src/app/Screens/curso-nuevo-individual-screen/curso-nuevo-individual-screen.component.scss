@@ -7,3 +7,13 @@
     border-bottom: solid black 1px;
 }
 
+#test {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-body {
+    background-color: lightgray;
+    margin-bottom: 20px;
+    text-align: center;
+}

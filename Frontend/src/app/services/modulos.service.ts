@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CursosService {
+export class ModulosService {
 
   constructor(private http:HttpClient) { }
 
@@ -21,11 +21,7 @@ export class CursosService {
     ),
   };
   
-  GetCursos():Observable<any> {
-    return this.http.get(`${environment.hostname}/Cursos`);
-  }
-
-  GetCursoId(id:number):Observable<any> {
-    return this.http.get(`${environment.hostname}/Cursos/${id}`);
+  GetModuloIdCurso(id:number):Observable<any> {
+    return this.http.get(`${environment.hostname}/Modulos/${id}`);
   }
 }

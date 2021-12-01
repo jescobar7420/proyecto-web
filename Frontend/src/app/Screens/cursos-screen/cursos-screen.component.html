@@ -47,13 +47,13 @@
             <h1>Cursos Disponibles</h1>
 
             <div class="container" id="container-cursos">
-                <div *ngFor="let curso of cursos">
-                    <div class="card bg-secundario carta-conf" [routerLink]="['/cursos', curso.id]">
+                <div *ngFor="let curso of ListaCursos">
+                    <div class="card bg-secundario carta-conf" [routerLink]="['/cursos', curso.idcurso]">
                         <iframe src="https://www.youtube.com/embed/rEsSxd0L4GI" title="videoreciente" allowfullscreen>
                         </iframe>
                         <div class="card-body" [routerLink]="['/inicio']">
                             <div class="card-title">{{curso.titulo}}</div>
-                            <div class="card-text">{{curso.modulos}}</div>
+                            <div class="card-text">{{curso.total}} Modulos</div>
                         </div>
                     </div>
                 </div>

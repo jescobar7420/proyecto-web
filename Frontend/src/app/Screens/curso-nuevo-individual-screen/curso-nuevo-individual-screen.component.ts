@@ -1,9 +1,9 @@
 import { Component, OnInit, SimpleChange } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { cursos, Cursos } from 'src/app/interfaces/cursos'; 
-import { ListaCursoVideo } from 'src/app/interfaces/cursovideo';
 import { ListaModulos, Modulo } from 'src/app/interfaces/modulo';
-import { Videos } from 'src/app/interfaces/videos'
+import { CursosService } from 'src/app/services/cursos.service';
+import { ModulosService } from 'src/app/services/modulos.service';
 
 
 @Component({
@@ -15,10 +15,9 @@ import { Videos } from 'src/app/interfaces/videos'
 export class CursoNuevoIndividualScreenComponent implements OnInit {
 
   idcurso:any;
-  ListaCursos = cursos;
-  ListaModulos = ListaModulos;
+  ListaModulos = new Array<Modulo>();
+  CursosRelacionados = new Array<Cursos>();
   CursoActual:any;
-  ModulosCurso = new Array<Modulo>();
 
   comentarios:any[] = [
     {
@@ -38,19 +37,33 @@ export class CursoNuevoIndividualScreenComponent implements OnInit {
     },
   ]
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private httpCurso:CursosService, private httpModulo:ModulosService) {
     this.route.params.subscribe(datos => {
       this.idcurso = datos["id"];
     })
   }
 
   ngOnInit(): void {
-    this.CursoActual = (this.ListaCursos.find(objeto=>objeto.idcurso == this.idcurso));
+    this.httpCurso.GetCursoId(this.idcurso).subscribe(datos => {
+      this.CursoActual = datos[0];
+    })
     
     //Modulos que pertenecen al curso
-    for(let i=0; i<ListaModulos.length; i++) {
-      if(ListaModulos[i].idCurso == this.idcurso) {
-        this.ModulosCurso.push(ListaModulos[i]);
+    this.httpModulo.GetModuloIdCurso(this.idcurso).subscribe(datos => {
+      for(let i=0; i<datos.items.length; i++) {
+        this.ListaModulos.push(datos.items[i]);
+      }
+    })
+    
+    this.httpCurso.GetCursos().subscribe(datos => {
+      for(let i=0; i<datos.items.length; i++) {
+        this.CursosRelacionados.push(datos.items[i]);
+      }
+    })
+    
+    for(let i=0; i<this.CursosRelacionados.length; i++) {
+      if(this.CursosRelacionados[i].idcurso == this.idcurso) {
+        this.CursosRelacionados.splice(i, 1);
       }
     }
   }
